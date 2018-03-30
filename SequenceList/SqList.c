@@ -181,14 +181,14 @@ Status ListInsert_Sq(SqList *L, int i, ElemType_Sq e)
 	if ((*L).length > (*L).listsize)
 	{
 		//表已满，增加分配
-		newbase = (ElemType_Sq *)realloc((*L).elem, ((*L).listsize + 10) * sizeof(ElemType_Sq));
+		newbase = (ElemType_Sq *)realloc((*L).elem, ((*L).listsize + LISTINCREMENT) * sizeof(ElemType_Sq));
 		if (!newbase)
 		{
 			//分配失败，返回
 			exit(OVERFLOW);
 		}
 		(*L).elem = newbase;
-		(*L).listsize = (*L).listsize + 10;
+		(*L).listsize = (*L).listsize + LISTINCREMENT;
 		//分配成功，接下来添加该元素
 	}
 

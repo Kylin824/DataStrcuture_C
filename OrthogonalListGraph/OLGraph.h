@@ -48,7 +48,7 @@ Status CreateGraph_OL(OLGraph *G, FILE *fp, GraphKind Gkind);
 Status CreateDG_OL(FILE *fp, OLGraph *G);
 void Print_DG_order(OLGraph G);
 void Print_DG_re_order(OLGraph G);
-Status CreateDN_AL(FILE *fp, OLGraph *G);
+Status CreateDN_OL(FILE *fp, OLGraph *G);
 //void Print_DN(OLGraph G);
 
 

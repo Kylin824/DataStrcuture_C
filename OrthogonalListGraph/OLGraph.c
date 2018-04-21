@@ -122,7 +122,7 @@ void Print_DG_re_order(OLGraph G)
 	}
 }
 
-Status CreateDN_AL(FILE *fp, OLGraph *G)
+Status CreateDN_OL(FILE *fp, OLGraph *G)
 {
 	char tmp;
 	int i, k, vi, vj, weight;

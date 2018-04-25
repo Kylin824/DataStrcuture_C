@@ -155,3 +155,60 @@ void Print_DN(ALGraph G)
 		printf("\n");
 	}
 }
+
+void DFS_Traverse_AL(ALGraph G)
+{
+	int i;
+	for (i = 0; i < G.vexnum; i++)		//初始化所有结点
+		visted[i] = FALSE;
+
+	for (i = 0; i < G.vexnum; i++)		//对未访问过的结点调用DFS，若是连通图，只会执行一次
+		if (!visted[i])
+			DFS(G, i);
+}
+
+void DFS(ALGraph G, int i)
+{
+	ArcNode *p;
+	visted[i] = TRUE;
+	printf("%c ", G.vertices[i].data);		//打印顶点
+	p = G.vertices[i].firstarc;				//访问顶点结点指向的第一条边
+	while (p)
+	{
+		if (!visted[p->adjvex])				//若还未访问过
+			DFS(G, p->adjvex);
+		p = p->nextarc;
+	}
+}
+
+void BFS_Traverse_AL(ALGraph G)
+{
+	LinkQueue Q;
+	ArcNode *arc;
+	int i, e;
+	InitQueue(&Q);
+	for (i = 0; i < G.vexnum; i++)
+		visted[i] = FALSE;
+	for (i = 3; i < G.vexnum; i++)		//顶点可随机选择，若是连通图，则只执行一次
+		if (!visted[i])
+		{
+			visted[i] = TRUE;
+			printf("%c ", G.vertices[i].data);
+			EnQueue(&Q, i);				//顶点入队列，开始BFS：将与顶点相邻的顶点入队列并输出，重复
+			while (!QueueEmpty(Q))
+			{
+				DeQueue(&Q, &e);
+				arc = G.vertices[e].firstarc;		
+				while (arc)				//找该点相邻的顶点并将其入队列
+				{
+					if (!visted[arc->adjvex])//该顶点未访问过
+					{
+						visted[arc->adjvex] = TRUE;
+						printf("%c ", G.vertices[arc->adjvex].data);
+						EnQueue(&Q, arc->adjvex);
+					}
+					arc = arc->nextarc;
+				}
+			}
+		}
+}

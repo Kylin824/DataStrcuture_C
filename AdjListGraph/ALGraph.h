@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include"LinkQueue.h"
 
 /* 状态码 */
 typedef int Status;
@@ -36,6 +37,7 @@ typedef struct VertexNode		//顶点表结点
 
 typedef VertexNode AdjList[MAX_VEXTEX_NUM];
 
+Status visted[MAX_VEXTEX_NUM];
 
 typedef struct
 {
@@ -51,5 +53,9 @@ Status CreateDG_AL(FILE *fp, ALGraph *G);
 void Print_DG(ALGraph G);
 Status CreateDN_AL(FILE *fp, ALGraph *G);
 void Print_DN(ALGraph G);
+
+void DFS(ALGraph G, int i);
+void DFS_Traverse_AL(ALGraph G);
+void BFS_Traverse_AL(ALGraph G);
 
 

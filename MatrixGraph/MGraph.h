@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include"LinkQueue.h"
 
 /* ×´Ì¬Âë */
 typedef int Status;
@@ -30,6 +31,8 @@ typedef struct
 	GraphKind kind;
 }MGraph;
 
+Status visted[MAX_VEXTEX_NUM];
+
 int Scanf(FILE *fp, char *format, ...);
 Status CreateGraph_M(MGraph *G, FILE *fp, GraphKind Gkind);
 Status CreateDG_M(FILE *fp, MGraph *G);
@@ -37,4 +40,7 @@ Status CreateDN_M(FILE *fp, MGraph *G);
 Status CreateUDG_M(FILE *fp, MGraph *G);
 Status CreateUDN_M(FILE *fp, MGraph *G);
 
+void DFS(MGraph G, int i);
+void DFS_Traverse_M(MGraph G);
+void BFS_Traverse_M(MGraph G);
 

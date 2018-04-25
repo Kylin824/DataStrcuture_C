@@ -5,7 +5,7 @@ int main()
 	MGraph G;
 	FILE *fp = NULL;
 	errno_t err;
-	GraphKind Gkind = UDN;
+	GraphKind Gkind = UDG;
 	switch (Gkind)
 	{
 	case DG:
@@ -24,6 +24,11 @@ int main()
 		break;
 	}
 	CreateGraph_M(&G, fp, Gkind);
+	printf("\nDFS Traverse: \n");
+	DFS_Traverse_M(G);
+	printf("\n");
+	printf("\nBFS Traverse: \n");
+	BFS_Traverse_M(G);
 	getchar();
 	fclose(fp);
 	return 0;

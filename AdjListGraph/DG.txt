@@ -1,5 +1,5 @@
 图类型→0（有向图）
-顶点数→4
-弧数→10
-顶点集→◤A，B，C，D◢
-弧的集合→◤A，B◢◤B，C◢◤C，A◢◤A，D◢◤B，D◢◤A，C◢◤C，D◢◤C，D◢◤D，A◢◤D，B◢
+顶点数→6
+弧数→12
+顶点集→◤A，B，C，D，E，F◢
+弧的集合→◤A，B◢◤B，C◢◤C，A◢◤A，D◢◤B，D◢◤A，C◢◤C，D◢◤C，D◢◤D，A◢◤D，B◢◤E，F◢◤F，E◢

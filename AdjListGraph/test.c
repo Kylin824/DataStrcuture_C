@@ -18,6 +18,11 @@ int main()
 	}
 	CreateGraph_AL(&G, fp, Gkind);
 	Print_DG(G);
+	printf("DFS Traverse: \n");
+	DFS_Traverse_AL(G);
+	printf("\nBFS Traverse: \n");
+	BFS_Traverse_AL(G);
+
 	//Print_DN(G);
 	getchar();
 	fclose(fp);

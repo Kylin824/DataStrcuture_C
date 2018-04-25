@@ -193,3 +193,55 @@ Status CreateUDN_M(FILE *fp, MGraph *G)
 	}
 	return OK;
 }
+
+void DFS(MGraph G, int i)
+{
+	int j;
+	visted[i] = TRUE;
+	printf("%c ", G.vexs[i]);		//打印顶点
+	for (j = 0; j < G.vexnum; j++)
+		if (G.arcs[i][j] == 1 && !visted[j])
+			DFS(G, j);
+}
+
+void DFS_Traverse_M(MGraph G)
+{
+	int i;
+	for (i = 0; i < G.vexnum; i++)		//初始化所有结点
+		visted[i] = FALSE;
+	for (i = 0; i < G.vexnum; i++)		//顶点可随机选择，若是连通图，则只执行一次
+		if (!visted[i])
+			DFS(G, i);
+}
+
+void BFS_Traverse_M(MGraph G)
+{
+	int i, j;
+	LinkQueue Q;
+	for (i = 0; i < G.vexnum; i++)
+		visted[i] = FALSE;
+	InitQueue(&Q);
+	for (i = 3; i < G.vexnum; i++)		//顶点可随机选择，若是连通图，则只执行一次
+	{
+		if (!visted[i])		//顶点未访问过
+		{
+			visted[i] = TRUE;
+			printf("%c ", G.vexs[i]);	//打印顶点
+			EnQueue(&Q, i);				//顶点入队列，开始BFS：将与顶点相邻的顶点入队列并输出，重复
+			while (!QueueEmpty(Q))		//队列非空
+			{
+				DeQueue(&Q, &i);		//出队列
+				for (j = 0; j < G.vexnum; j++)		//找该点相邻的顶点并将其入队列
+				{
+					if (G.arcs[i][j] == 1 && !visted[j])
+					{
+						visted[j] = TRUE;
+						printf("%c ", G.vexs[j]);
+						EnQueue(&Q, j);
+					}
+				}
+
+			}
+		}
+	}
+}

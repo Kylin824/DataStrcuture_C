@@ -1,0 +1,5 @@
+图类型→0
+顶点数→8
+弧数→11
+顶点集→◤A，B，C，D，E，F，G，H◢
+弧的集合→◤G，H◢◤G，F◢◤F，G◢◤E，F◢◤E，A◢◤D，H◢◤D，C◢◤C，D◢◤B，E◢◤B，C◢◤A，B◢
